@@ -1,7 +1,7 @@
 difference(){
-	translate([0,0,-2]) cube(size = [30,10,5], center = true);
-	translate([0,0,4]) color("green") cube(size = [14,1.9,10], center = true);
-	scale([1.8,1,1])  cylinder(h = 5, r=0.5,$fn=50, center=true);	
-	translate([0,0,-3]) cylinder(h = 3, r=0.3,$fn=50, center=true);	
-	translate([0,3.7,-1]) color("blue") cube(size = [0.3,7,9], center=true);
+	translate([0,0,-4.8]) cube(size = [126,42,21], center = true);
+	translate([0,0,16.8]) color("green") cube(size = [58.8,7.98,42], center = true);
+	scale([1.9,1.1,1])  cylinder(h = 21, r=2.1,$fn=50, center=true);	
+	translate([0,0,-12.6]) cylinder(h = 12.6, r=1.26,$fn=50, center=true);	
+	translate([0,15.54,-4.2]) color("blue") cube(size = [1.26,29.4,37.8], center=true);
 }
