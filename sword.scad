@@ -23,7 +23,7 @@ module arc(r,t, w){
 		ring(r,t,10)
 		color("red") translate([r/2,0,0]) cube([r,2*r,10], center=true);
 	}
-		
+
 }
 efes(10);
 translate([-59,10,0])
@@ -41,5 +41,6 @@ translate([-110,0,0]) arc(11,4,1.8);
 for (i = [1:5]) { 
 	translate([-(i*18),0,0]) rotate ([0,0,30])  cube([4,21,10], center=true);
 }
-
-
+translate([158,12,0]) cube([300,5,10], center=true);
+translate([158,-12,0]) cube([300,5,10], center=true);
+translate([263,0,0]) rotate ([0,0,180]) arc(15,5,10);
