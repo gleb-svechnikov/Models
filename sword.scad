@@ -36,4 +36,10 @@ translate([-113,0,0]) arc(20,4,1);
 
 translate([-110,0,0]) cube([10,40,10], center=true);
 
-translate([-110,0,0]) color("red") arc(11,4,1.8);
+translate([-110,0,0]) arc(11,4,1.8);
+
+for (i = [1:5]) { 
+	translate([-(i*18),0,0]) rotate ([0,0,30])  cube([4,21,10], center=true);
+}
+
+
