@@ -20,13 +20,19 @@ module back(size, height){
 	}
 }
 translate ([0,-7.5,12]) back(20, 26);
+
 union(){
 	difference(){
 		cube([20,50,2], center=true);
-		translate([0,5,0])cube([8,12,3], center=true);
+		translate([0,8,0]) cube([9,14,3], center=true);
 	}
 	translate([0,25,0]) cylinder(2, 10, 10, center=true);
-	translate([0,25,5]) tube(6,4, 10);
+	translate([0,25,-5]) tube(6,4, 10);
 }
+
+translate([0,25,0]) cube([4,4,20], center=true);
+translate([0,25,20]) cube([4,10,4], center=true);
+
 translate([-10,-25,0]) side(25, 45);
 translate([8,-25,0]) side(25, 45);
+rotate([90,0,0]) translate([0,25,33]) cylinder(15, 2, 2, center=true);
