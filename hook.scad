@@ -1,30 +1,27 @@
-module hook(){
-	module halfRing() {
+$fn=100;
+$fs = 0.2;
+module halfRing() {
      	difference() {
-			cylinder (h = 4, r=3, center = true, $fn=1000);
-			cylinder (h = 4.1, r=2, center = true, $fn=1000);
-			translate([-1,-1.9,0]) color("red") cube(size = [4,3,4.6], center = true);
+			cylinder (h = 12, r=10, center = true);
+			cylinder (h = 12.4, r=6, center = true);
+			translate([-4,-7.2,0]) color("red") cube(size = [12,12,18.4], center = true);
 		}
  	}
-	halfRing();
-	translate([2,-4.55,0])
-	mirror([0,0,0]) rotate(a=-180, v=[0,0,1])  halfRing();
-}
 
+module hook(){	
+	halfRing();
+	translate([3,-15.5,0])
+	mirror([1,0,0]) rotate(a=-100, v=[0,0,1])  halfRing();
+}
 module section(){
-	translate([-2.5,0,1.7]) 
+	translate([-8,0,6]) 
 	rotate(a=45, v=[1,0,-1.1]) 
 	color("red") 
-	cube(size = [2,5,2], center = true);
+	cube(size = [8,15,8], center = true);
 }
-
 difference(){
 	hook();
 	section();
 	mirror([0,0,1]) section();
 }
-color("green") translate([-2.5,-1,0])  sphere(1, $fs = 0.1);
-
-
-
-		
+translate([-8,-1,0])  sphere(3);
