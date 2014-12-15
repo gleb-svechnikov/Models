@@ -1,13 +1,10 @@
 module box_top(h){
 	translate([0,0,h]) difference(){
-	    cube([140,280,140], center=true);
+	    cube([140,280,180], center=true);
 	    color("blue") translate([0,0,-h]) cube([130,270,160], center=true);
 	    color("green") translate([0,0,h-20]) rotate([90,0,0]) cylinder(300,60,60, center = true);
 	};
-        translate([0,0,-42]) difference(){
-            cube([140,280,5], center=true);
-            cube([120,260,5], center=true);
-        }
+
 }
 module box_bottom(h){
 	translate([0,0,h]) difference(){
@@ -58,7 +55,7 @@ module grid(position_y = 0){
 }
 box_top(20);
 box_bottom(-150);
-translate([0,0,26]) pins(4);
+translate([0,0,20]) pins(4);
 //top();
 //legs(89,2);
 //holder(40, -88);
