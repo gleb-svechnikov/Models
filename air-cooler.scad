@@ -28,7 +28,7 @@ module legs(position_z = 90, radius = 2){
 module pins(radius = 5){
 	for (i = [1,-1]){
 		for (j = [1, -1]){
-			color("green") translate([66*j,-140,60*i]) rotate([90,0,0]) cylinder(40,radius,radius, center = true, $fs = 0.5);
+			color("green") translate([66*j,-160,60*i]) rotate([90,0,0]) cylinder(40,radius,radius, center = true, $fs = 0.5);
 		}
 	}
 };
