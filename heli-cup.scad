@@ -1,15 +1,16 @@
+$fn = 100;
 module hook(){
-	cylinder(100,6,6,true);
-	rotate([0,90,0]) translate([-50,0,20]) cylinder(50,6,6,true);
+//	cylinder(10,0.6,0.6,true);
+	rotate([0,90,0]) translate([-5,0,1]) cylinder(3,0.6,0.6,true);
 }
 
 
 
 difference(){
-	cylinder(100,260,220,true);
-	translate([0,0,-20]) cylinder(100,260,220,true);
-	cylinder(150,40,40,true);
+	cylinder(7,14,11,true);
+	translate([0,0,-1]) cylinder(8,13,10.1,true);
+	cylinder(15,2.5,2.5,true);
 	
 }
-rotate([-60,5,0]) translate([-280,50,-100]) hook();
+ translate([-15,0,-7.5]) hook();
 
