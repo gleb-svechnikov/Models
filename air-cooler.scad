@@ -6,28 +6,48 @@ module box_top(h){
 	};
 
 }
-module tube(length = 30){
-	$fn = 100;
+module foil(height=190){
 	difference(){
-		cylinder(length,6,6, center = true);
-		cylinder(length +1,5,5, center = true);
+		square([height,260], true);
+		for(i=[-2:2]){
+			translate([65.1,i*50]) square([60,20], true);
+			translate([-80,i*100]) circle(3);
+			translate([20,i*100]) circle(3);
+		}
+		
 	}
 }
-module water_box(){
-	difference(){
-	    cube([142,60,60], center=true);
-	    translate([70,0,29]) cube([4,60,4], center=true);
-		color("green") translate([0,0,1]) cube([139,59,59], center=true);
-	};
-	color("red") translate([1,29,27.5]) cube([140,3,1], center=true);
-	color("red") translate([1,29,29.5]) cube([140,3,1], center=true);
-	color("red") translate([1,-29,27.5]) cube([140,3,1], center=true);
-	color("red") translate([1,-29,29.5]) cube([140,3,1], center=true);
+
+module freezer(height = 190){
+	color("white") difference(){			
+	square([height,260], true);
+		for(i=[-2:2]){
+			translate([65.1,i*50]) square([60,20], true);
+			translate([-80,i*100]) circle(3);
+			translate([20,i*100]) circle(3);
+		}
+		
+	}
+	translate([0,0,1]) foil();
+	translate([0,0,-1]) foil();
 }
+module water_box(){
+	
+	difference(){
+			rotate([90,0,0]) cylinder(280,26,26, center = true);
+			rotate([90,0,0]) cylinder(279,25,25, center = true);
+			translate([0,0,24]) cube([49,281,26], center=true);
+			translate([-20,0,-4]) cube([20,281,50], center=true);
+	};
+			
+		    
+
+}
+
 module box_bottom(h){
 	translate([0,0,h]) difference(){
 	    cube([142,280,40], center=true);
-	    color("blue") translate([0,0,20]) cube([130,270,60], center=true);
+	    color("blue") translate([0,0,20]) cube([133,275,70], center=true);
 	    color("green") translate([0,0,20]) rotate([90,0,0]);
 	};
         translate([0,0,0.87*h]) difference(){
@@ -71,16 +91,35 @@ module grid(position_y = 0){
 		}
 	}
 }
-box_top(20);
-box_bottom(-150);
+//box_top(20);
 //translate([0,0,20]) pins(4);
 //top();
 //legs(89,2);
 //holder(40, -88);
 //holder(10, 80);
 //grid(137);
-grid(-139);
-translate([0,180,-140]) water_box();
-translate([120,150,-115]) cube([140, 60,2], center = false);
+//grid(-139);
+difference(){
+box_bottom(-150);
+translate([75,0,-163]) cube([30, 274,4], center = true);
+}
+translate([73,0,-144]) water_box();
 
-
+rotate([0,90,0]) 
+for(i=[-12:12]){
+	
+	translate([0,0,i*5]) freezer();
+}
+module plate(){
+		difference(){
+			color("orange") cube([2,260,20], true);
+			for(i=[-1:1]){
+				rotate([0,90,0]) translate([0,100*i,-1]) cylinder(20,3,3,true);
+			}
+		}
+}
+for(i=[-13:12]){ 
+	translate([i*5+2,0,79]) plate();
+	translate([i*5+2,0,-19]) plate();
+}
+//rotate([0,90,0]) translate([0,50,15]) cylinder(200,2,2,true);
