@@ -1,49 +1,42 @@
-$fn = 100;
-module holder(){
-    translate([-24,-25,0])
-    {
-        difference(){
-            minkowski(){
-                cube([19,45,5], true);
-                translate([12,26,0]) sphere(5);
-            }
-            cube([24,51,10]);
-       // translate([15,50,13]) cube([80,129,5], true);
-        }
+$fn = 50;
+module base(){
+    difference(){
+        cube([24,51,10], true);
+        translate([0,0,2]) cube([20,55,10], true);
     }
 }
-module part1(){
+
 difference(){
-    union(){
-        holder();
-        translate([30,0,0]) cube([60,25,10], true);
-        
-    }
-       translate([47,0,5]) cube([90,20,10], true);
-    
-}
-
-
-}
-rotate([0,4,0]){  
-    part1();
-    translate([-20,0,0]) cylinder(6,1,1, true);
-    translate([-5,0,0]) cylinder(6,1,1, true);
-    }
-translate([0,1,20]) rotate([180,-4,0])  {
-    part1();
-}
-
-
-rotate([0,-8,0]) translate([-19,-20,20]) cylinder(6,1,1, true);
-rotate([0,-8,0])  translate([-4,-20,20]) cylinder(6,1,1, true);
-rotate([0,-8,0]) translate([-19,20,20]) cylinder(6,1,1, true);
-rotate([0,-8,0])  translate([-4,20,20]) cylinder(6,1,1, true);
-rotate([0,-5,0]) translate([60,0,4.9]) rotate([90,0,0]) 
-difference(){
-    cylinder(25,19.3,19.3, true);   
+    cylinder(24,19.3,19.3, true);   
     cylinder(41,9.2,9.2, true);
-    translate([-41,0,0]) cube([77,74,51], true);  
+    translate([-40,0,0]) cube([77,74,51], true);  
 }
+rotate([5,90,90]) translate([0,25,-14.3]) base();
+rotate([5,-90,90]) translate([0,25,-14.3]) base();
 
 
+module holder(){
+minkowski(){
+difference(){
+    
+    translate([-12,-25,-6])             
+            cube([24,50,10]);
+    cube([23.9,49.9,9], true); 
+}
+translate([-12,-25,4])  sphere(2);
+}
+}
+module holder1(){
+    holder();
+translate([-18,-25,5]) cylinder(6,1,1, true);
+translate([-6,-25,5]) cylinder(6,1,1, true);
+}
+module holder2(){
+    holder();
+    translate([-18,-10,5]) cylinder(6,1,1, true);
+    translate([-6,-40,5]) cylinder(6,1,1, true);
+    translate([-18,-40,5]) cylinder(6,1,1, true);
+    translate([-6,-10,5]) cylinder(6,1,1, true);
+}
+translate([-75,-13,25]) rotate([90,0,180]) holder1();
+translate([-52,13,25]) rotate([90,0,0]) holder2();
