@@ -1,6 +1,6 @@
 difference(){
 cylinder(10,15,15);
-cylinder(10,13,13);
+cylinder(10,12.5,12.5);
 }
 
 difference(){
