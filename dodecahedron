@@ -1,0 +1,17 @@
+$fn=100;
+module box() {
+    cube([2,2,1], center = true); 
+}
+
+module dodecahedron() {
+      dihedral = 116.565;
+      n=5;
+      intersection(){
+            box();
+            intersection_for(i=[1:n])  { 
+                rotate([dihedral, 0, 360 / n * i])  box(); 
+           }
+      }
+}
+
+scale(10) dodecahedron();
