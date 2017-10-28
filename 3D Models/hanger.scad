@@ -1,0 +1,1 @@
+import /Users/glebsvechnikov/Models/3D Models/hook.scad;
