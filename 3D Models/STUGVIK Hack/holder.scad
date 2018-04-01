@@ -15,7 +15,7 @@ difference()
                  translate([9,0,5]) cylinder(17,6,6);
                  translate([-9,0,5]) cylinder(17,6,6);
                 }
-            translate([0,0,4]) nut();
+            translate([0,0,2]) nut();
               translate([0,0,-4])    cylinder(22,3.2,3.2);
 
         }
